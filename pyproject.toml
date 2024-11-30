@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "tweet-deleter"
+version = "0.1.0"
+description = ""
+authors = ["Turner Vink <turner.vink@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+TwitterAPI = "^2.8.2"
+
+[tool.poetry.scripts]
+delete-old-tweets = "delete_old_tweets:main"

@@ -27,10 +27,10 @@ def delete_after_datetime():
 
 
 def delete_prior_to_datetime():
-    return datetime(2020, 7, 1, 0, 0, 0, tzinfo=timezone.utc)
+    return datetime(2024, 11, 1, 0, 0, 0, tzinfo=timezone.utc)
 
 
-with open('./tweet.js') as f:
+with open('./tweets.js') as f:
     data = json.load(f)
 
 tweets_oldest_first = sorted(data, key=tweet_created_epoch)
@@ -44,6 +44,7 @@ print('Found {} tweets to delete'.format(len(tweets_to_delete)))
 print('Earliest tweet is from {}, ID: {}'.format(tweets_to_delete[0]['tweet']['created_at'], tweets_to_delete[0]['tweet']['id_str']))
 print('Most recent tweet is from {}, ID: {}'.format(tweets_to_delete[-1]['tweet']['created_at'], tweets_to_delete[-1]['tweet']['id_str']))
 
+# Uncomment this to actually delete the tweets
 # for tweet in tweets_to_delete:
 #     print('Deleting tweet {}'.format(tweet['tweet']['id_str']))
 #     r = api.request('statuses/destroy/:{}'.format(tweet['tweet']['id_str']))
